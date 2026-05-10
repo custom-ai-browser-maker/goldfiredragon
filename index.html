@@ -1,80 +1,170 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hello, Deno</title>
-  <link rel="preload" href="https://demo-styles.deno.deno.net/fonts/Moranga-Regular.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="https://demo-styles.deno.deno.net/fonts/Moranga-Medium.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="https://demo-styles.deno.deno.net/fonts/Recursive_Variable.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="https://demo-styles.deno.deno.net/styles.css">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GoldFireDragon Browser</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
   <style>
-    img {
-      display: inline-block;
-      vertical-align: middle;
+    * { box-sizing: border-box; }
+    body {
+      font-family: Arial, sans-serif;
+      background: #0a0010 url('https://cdn-ai.onspace.ai/onspace/project/uploads/6SC2bAVvqSFMEGrGCS7FCM/GoldFireDragonBrowser_home_page.jpg') center/cover no-repeat fixed;
+      margin: 0; padding: 0; min-height: 100vh;
+      color: #e9d5ff;
+    }
+
+    .search-bar {
+      border: 2px solid #f59e0b;
+      border-radius: 9999px;
+      background: rgba(12, 4, 28, 0.92);
+      backdrop-filter: blur(24px);
+    }
+    .search-bar:focus-within { 
+      border-color: #fbbf24; 
+      box-shadow: 0 0 50px rgba(245,158,11,0.95); 
+    }
+
+    #toggle-main-btn {
+      width: 56px; height: 56px;
+      background: rgba(12,4,28,0.95);
+      border: 2px solid #f59e0b;
+      border-radius: 50%;
+      font-size: 30px;
+      transition: all 0.3s;
+      z-index: 300;
+    }
+    #toggle-main-btn:hover {
+      background: #d97706;
+      transform: scale(1.25);
+    }
+
+    #main-content.hidden { display: none !important; }
+
+    .status {
+      position: fixed; 
+      top: 18px; 
+      right: 230px;
+      background: linear-gradient(90deg, #22c55e, #86efac);
+      color: #052e16;
+      padding: 9px 24px; 
+      border-radius: 9999px;
+      font-size: 14.8px; 
+      font-weight: 900;
+      z-index: 200;
+      box-shadow: 0 0 30px #22c55e;
     }
   </style>
 </head>
+<body class="flex flex-col min-h-screen">
 
-<body>
-    <main>
-      <section>
-        <a href="https://deno.com/deploy">
-        </a>
-      <h1>
-        <p>
-          Hello, Deno!
-        </p>
-      </h1>
-      <p>
-        This little example is being served by <a href="https://deno.com/">Deno</a>.
-        You can run it locally or in porduction on <a href="https://deno.com/deploy">Deno Deploy</a> or other hosting platforms.
-      </p>
-      <ul>
-        <li>Run it locally with<code>deno task dev</code></li>
-        <li>Deploy it to <a href="https://deno.com/deploy">Deno Deploy</a> via the CLI by running<code>deno deploy</code></li>
-        <li>Run it locally and share it publically by running <code>deno deploy --connected</code></li>
-      </ul>
-    </section>
-      <hr>
-    <section>
-      <h2>What's next?</h2>
-      <p>
-        You can clone this example and deploy it to Deno Deploy in just a few clicks
-        <a href="https://app.deno.com/new?clone=https://github.com/denoland/examples&path=hello-world"><img src="https://deno.com/button" alt="Deploy on Deno"/></a>
-      </p>
-      <ul>
-        <li>
-          <a href="https://docs.deno.com/examples">More examples in the Deno Docs</a>
-        </li>
-        <li>
-          <a href="https://deno.com/deploy">Deno Deploy Early Access</a>
-        </li>
-      </ul>
-    </section>
-    </main>
-    <hr>
-    <footer>
-      <section>
-      <ul class="flex-btwn">
-        <li>
-          <a href="https://deno.com">BlueSky</a>
-        </li>
-        <li>
-          <a href="https://deno.com">Twitter</a>
-        </li>
-        <li>
-          <a href="https://deno.com">YouTube</a>
-        </li>
-        <li>
-          <a href="https://deno.com">Newsletter</a>
-        </li>
-        <li>
-          <a href="https://deno.com">Deno</a>
-        </li>
-      </ul>
-      </section>
-    </footer>
+  <div class="status">🇯🇵 Japan WiFi IP Connected • Proxy Active • FULL UNCENSORED</div>
+
+  <!-- TOP NAV -->
+  <header class="flex justify-end items-center px-6 py-5 z-50" 
+          style="background: linear-gradient(to bottom, rgba(0,0,0,0.92), transparent);">
+    
+    <a href="#" class="hover:text-white px-4 py-2">Gmail</a>
+    <a href="#" class="hover:text-white px-4 py-2">이미지</a>
+    <a href="#" class="hover:text-white px-4 py-2">뉴스</a>
+    <a href="#" class="hover:text-white px-4 py-2">지도</a>
+
+    <button id="apps-btn" class="w-11 h-11 flex items-center justify-center rounded-full hover:bg-white/10 text-2xl">📱</button>
+
+    <button id="toggle-main-btn" title="로고 + 검색창 숨기기 / 보이기">👁️</button>
+
+    <img src="https://cdn-ai.onspace.ai/onspace/project/uploads/cNeEsZ2cuNyHxmYfJ3dhx6/GoldFireDragonBrowser_logo-removebg-preview.png" 
+         class="w-10 h-10 rounded-full cursor-pointer" title="GoldFireDragon 계정">
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main id="main-content" class="flex-1 flex flex-col items-center justify-center px-4">
+    <div class="mb-12 text-center">
+      <img src="https://cdn-ai.onspace.ai/onspace/project/uploads/cNeEsZ2cuNyHxmYfJ3dhx6/GoldFireDragonBrowser_logo-removebg-preview.png" 
+           style="width: clamp(150px, 26vw, 250px);" class="mx-auto drop-shadow-2xl" draggable="false">
+      <div class="text-7xl font-black tracking-[6px] mt-8 bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-300 bg-clip-text text-transparent">
+        GoldFireDragon
+      </div>
+      <div class="text-red-500 text-2xl mt-5 font-bold">FULL UNCENSORED MODE</div>
+    </div>
+
+    <div class="w-full max-w-[740px]">
+      <div class="search-bar flex items-center px-8 py-7">
+        <i class="fa-solid fa-magnifying-glass text-4xl text-amber-400 mr-6"></i>
+        <input id="search-input" type="text" 
+               class="flex-1 bg-transparent outline-none text-2xl placeholder:text-amber-300"
+               placeholder="검색어 또는 URL을 입력하세요" autocomplete="off">
+        <button id="clear-btn" class="hidden text-4xl text-amber-300 hover:text-white mr-6">✕</button>
+        <button class="text-4xl text-amber-400 hover:text-white mr-5"><i class="fa-solid fa-microphone"></i></button>
+        <button class="text-4xl text-amber-400 hover:text-white"><i class="fa-solid fa-image"></i></button>
+      </div>
+
+      <div class="flex justify-center gap-6 mt-12">
+        <button id="search-btn" class="px-14 py-5 bg-amber-600 hover:bg-amber-700 rounded-3xl text-xl font-medium transition">
+          GoldFireDragon 검색
+        </button>
+        <button id="lucky-btn" class="px-14 py-5 bg-transparent border-2 border-amber-400 hover:bg-amber-400 hover:text-black rounded-3xl text-xl font-medium transition">
+          I'm Feeling Lucky
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <footer class="mt-auto py-10 text-center text-amber-400 text-sm">
+    🇯🇵 Japan WiFi IP • GoldFireDragon 135.0 • FULL UNCENSORED
+  </footer>
+
+  <script>
+    // ==================== Deno Proxy 주소 ====================
+    const PROXY_URL = "https://goldfiredragon.deno.dev/proxy";  
+    // ←←← 여기에 당신이 배포한 실제 Deno Proxy 주소를 넣으세요!
+
+    function openSearch(query) {
+      query = query.trim();
+      if (!query) return;
+
+      let target = query;
+      if (!target.startsWith('http')) {
+        if (target.includes('.')) {
+          target = 'http://' + target;
+        } else {
+          target = `http://www.google.co.jp/search?q=${encodeURIComponent(query)}&gl=jp&hl=ko&safe=off&nfpr=1&filter=0`;
+        }
+      }
+
+      const finalUrl = `${PROXY_URL}?url=${encodeURIComponent(target)}`;
+      window.open(finalUrl, '_blank');
+    }
+
+    document.getElementById('search-btn').addEventListener('click', () => openSearch(document.getElementById('search-input').value));
+    document.getElementById('lucky-btn').addEventListener('click', () => openSearch(document.getElementById('search-input').value));
+
+    document.getElementById('search-input').addEventListener('keydown', e => {
+      if (e.key === 'Enter') openSearch(e.target.value);
+    });
+
+    // Clear 버튼
+    const input = document.getElementById('search-input');
+    const clearBtn = document.getElementById('clear-btn');
+    input.addEventListener('input', () => clearBtn.classList.toggle('hidden', !input.value));
+    clearBtn.addEventListener('click', () => {
+      input.value = '';
+      clearBtn.classList.add('hidden');
+      input.focus();
+    });
+
+    // 로고 + 검색창 토글
+    let hidden = false;
+    document.getElementById('toggle-main-btn').addEventListener('click', () => {
+      hidden = !hidden;
+      document.getElementById('main-content').classList.toggle('hidden', hidden);
+      document.getElementById('toggle-main-btn').innerHTML = hidden ? '🔄' : '👁️';
+    });
+
+    input.focus();
+  </script>
 </body>
 </html>
